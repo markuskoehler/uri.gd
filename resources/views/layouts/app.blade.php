@@ -97,6 +97,12 @@
     @include('cookieConsent::index')
 </main>
 
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted text-center d-md-none">Copyright &copy; 2018 by Markus Koehler IT Services<!-- Proudly powered by the Laravel Framework. | uri.gd v1.0.0 --></span>
+        <span class="text-muted text-center d-none d-md-block">Copyright &copy; 2018 by Markus Koehler IT Services. Proudly powered by the Laravel Framework. | uri.gd v1.0.0</span>
+    </div>
+</footer>
 @stack('foot')
 </body>
 </html>
