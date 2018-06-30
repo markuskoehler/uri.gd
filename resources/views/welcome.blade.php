@@ -51,10 +51,6 @@
             text-align: center;
         }
 
-        .title {
-            font-size: 84px;
-        }
-
         .links {
             margin-top: 50px;
         }
@@ -82,8 +78,9 @@
 @section('content')
     <div class="flex-center position-ref full-height">
         <div class="content">
-            <div class="title m-b-md">
-                <img src="{{ asset('img/uri-gd-3.fw.png') }}" alt="uri.gd">
+            <div class="m-b-md">
+                <img src="{{ asset('img/uri-gd-3.fw.png') }}" alt="uri.gd"><br>
+                <span class="subtitle">The open source URL shortener</span>
             </div>
 
             <div class="searchbox">
@@ -98,11 +95,10 @@
             </div>
 
             <div class="links">
-                {{--<a href="https://laravel.com/docs">Documentation</a>
-                <a href="https://laracasts.com">Laracasts</a>
-                <a href="https://laravel-news.com">News</a>
-                <a href="https://forge.laravel.com">Forge</a>
-                <a href="https://github.com/laravel/laravel">GitHub</a>--}}
+                <a href="https://koehler.wiki/x/IwAyAQ">Documentation</a>
+                <a href="https://github.com/markuskoehler/uri.gd">GitHub</a>
+                {{--<a href="https://laravel-news.com">News</a>
+                <a href="https://forge.laravel.com">Forge</a>--}}
             </div>
         </div>
     </div>
