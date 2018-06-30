@@ -14,8 +14,11 @@
                             </div>
                         @endif
 
-                        You currently have {{ $count }} URLs saved. <a class="btn btn-info" href="{{ url()->route('urls.index') }}">View them</a><br><br>
-
+                        You currently have {{ $count }} URLs saved.
+                            @if($count)
+                            <a class="btn btn-info" href="{{ url()->route('urls.index') }}">View them</a>
+                            @endif
+                            <br><br>
                         <a class="btn btn-primary" href="{{ url()->route('urls.create') }}">Create new</a>
                     </div>
                 </div>
