@@ -115,7 +115,7 @@ class UrlController extends Controller
                 ->withInput($request->all());
         } else {
             // store
-            $url = Url::find($id);
+            $url = Url::withUuid($id)->first();
             $url->slug = $request->input('slug') ?? $this->random_slug();
             $url->title = $request->input('title');
             $url->description = $request->input('description');
