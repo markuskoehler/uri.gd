@@ -31,4 +31,6 @@ Route::prefix('legal')->group(function() {
     Route::get('/privacy-policy', 'LegalController@privacy_policy')->name('privacy-policy');
 });
 
+Route::post('goto')->uses('RedirectorController@goto')->name('goto');
+
 Route::get('/{slug}')->uses('RedirectorController@index')->name('redirector');

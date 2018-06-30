@@ -15,4 +15,8 @@ class RedirectorController extends Controller
             'link' => $url->link
         ]);
     }
+
+    public function goto(Request $request) {
+        return redirect()->route('redirector', ['slug' => $request->input('slug')]);
+    }
 }

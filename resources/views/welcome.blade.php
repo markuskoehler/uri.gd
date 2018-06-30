@@ -87,12 +87,14 @@
             </div>
 
             <div class="searchbox">
+                {{ bs()->openForm('post', url()->route('goto')) }}
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Link ID" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="slug" placeholder="Link Slug">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button"><span class="oi oi-check" aria-hidden="true"></span></span></button>
+                        <button class="btn btn-outline-secondary" type="submit"><span class="oi oi-check" aria-hidden="true"></span></button>
                     </div>
                 </div>
+                {{ bs()->closeForm() }}
             </div>
 
             <div class="links">
