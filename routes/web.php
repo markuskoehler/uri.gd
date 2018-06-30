@@ -17,9 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('user')->group(function() {
+    Route::get('/profile', 'UserAreaController@profile')->name('profile');
+
+    Route::resource('urls', 'UrlController');
+    Route::get('urls/{id}/delete', function(Request $request, $id) {
+        return view('urls.delete', compact('id'));
+    })->name('urls.delete');
+});
 
 Route::prefix('legal')->group(function() {
     Route::get('/legal-notice', 'LegalController@legal_notice')->name('legal-notice');
     Route::get('/privacy-policy', 'LegalController@privacy_policy')->name('privacy-policy');
 });
+
+Route::get('/{slug}')->uses('RedirectorController@index')->name('redirector');
