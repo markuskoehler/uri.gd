@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Url;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class UserAreaController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,8 +22,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function profile()
     {
-        return view('home');
+        $url_count = Url::whereUserId(auth()->user()->id)->count();
+
+        return view('user.profile', [
+            'count' => $url_count
+        ]);
     }
 }
