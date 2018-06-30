@@ -61,7 +61,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('home') }}">Profile</a>
+                            <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -73,19 +73,18 @@
                             </form>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarLegalDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            Legal <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarLegalDropdown">
-                            <a class="dropdown-item" href="{{ route('legal-notice') }}">Legal Notice</a>
-                            <a class="dropdown-item" href="{{ route('privacy-policy') }}">Privacy Policy</a>
-                        </div>
-                    </li>
                 @endguest
+                <li class="nav-item dropdown">
+                    <a id="navbarLegalDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Legal <span class="caret"></span>
+                    </a>
 
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarLegalDropdown">
+                        <a class="dropdown-item" href="{{ route('legal-notice') }}">Legal Notice</a>
+                        <a class="dropdown-item" href="{{ route('privacy-policy') }}">Privacy Policy</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -98,5 +97,6 @@
     @include('cookieConsent::index')
 </main>
 
+@stack('foot')
 </body>
 </html>
