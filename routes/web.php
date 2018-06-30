@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('legal')->group(function() {
+    Route::get('/legal-notice', 'LegalController@legal_notice')->name('legal-notice');
+    Route::get('/privacy-policy', 'LegalController@privacy_policy')->name('privacy-policy');
+});
