@@ -14,6 +14,7 @@
                             <strong>Link:</strong> {{ $url->link }}<br>
                             <strong>Slug:</strong> {{ $url->slug }}
                         </p>
+                        <a class="btn btn-secondary" href="#" onclick="window.history.go(-1); return false;">Back</a>
                     </div>
                 </div>
             </div>
