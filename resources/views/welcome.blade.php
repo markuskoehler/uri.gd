@@ -95,8 +95,8 @@
             </div>
 
             <div class="links">
-                <a href="https://koehler.wiki/x/IwAyAQ">Documentation</a>
-                <a href="https://github.com/markuskoehler/uri.gd">GitHub</a>
+                <a href="https://koehler.wiki/x/IwAyAQ" target="_blank">Documentation</a>
+                <a href="https://github.com/markuskoehler/uri.gd" target="_blank">GitHub</a>
                 {{--<a href="https://laravel-news.com">News</a>
                 <a href="https://forge.laravel.com">Forge</a>--}}
             </div>
