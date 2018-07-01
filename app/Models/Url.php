@@ -9,5 +9,5 @@ class Url extends Model
 {
     use HasBinaryUuid;
 
-
+    protected $hidden = ['user_id'];
 }
