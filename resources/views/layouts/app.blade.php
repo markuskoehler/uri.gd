@@ -19,6 +19,8 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
     @stack('head')
+
+    @include('matomo')
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
