@@ -57,7 +57,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                            <a class="dropdown-item" href="{{ route('profile') }}">{{ __('Profile') }}</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -73,12 +73,27 @@
                 <li class="nav-item dropdown">
                     <a id="navbarLegalDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        Legal <span class="caret"></span>
+                        {{ __('Legal') }} <span class="caret"></span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarLegalDropdown">
-                        <a class="dropdown-item" href="{{ route('legal-notice') }}">Legal Notice</a>
-                        <a class="dropdown-item" href="{{ route('privacy-policy') }}">Privacy Policy</a>
+                        <a class="dropdown-item" href="{{ route('legal-notice') }}">{{ __('Legal Notice') }}</a>
+                        <a class="dropdown-item" href="{{ route('disclaimer') }}">{{ __('Disclaimer') }}</a>
+                        <a class="dropdown-item" href="{{ route('privacy-policy') }}">{{ __('Privacy Policy') }}</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarLanguageDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ __('Language') }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarLanguageDropdown">
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="dropdown-item">
+                                {{ $properties['native'] }}
+                            </a>
+                        @endforeach
                     </div>
                 </li>
             </ul>
