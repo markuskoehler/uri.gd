@@ -10,6 +10,10 @@ class LegalController extends Controller
         return view('legal.legal-notice');
     }
 
+    public function disclaimer(Request $request) {
+        return view('legal.disclaimer');
+    }
+
     public function privacy_policy(Request $request) {
         return view('legal.privacy-policy');
     }

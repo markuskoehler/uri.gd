@@ -8,43 +8,37 @@
                     <div class="card-header">URLs</div>
 
                     <div class="card-body">
+                        <p class="pull-right"><a class="btn btn-primary" href="{{ url()->route('urls.create') }}">{{ __('Create new') }}</a></p>
                         <table class="table table-striped table-bordered table-responsive">
                             <thead>
                             <tr>
-                                <td>Slug</td>
-                                <td>Title</td>
-                                <td>Description</td>
-                                <td>Actions</td>
+                                <td>{{ __('Slug') }}</td>
+                                <td>{{ __('Title') }}</td>
+                                <td>{{ __('Description') }}</td>
+                                <td>{{ __('Actions') }}</td>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($urls as $key => $value)
                                 <tr>
-                                    <td>{{ $value->slug }}</td>
+                                    <td><a href="{{ LaravelLocalization::getNonLocalizedURL(url()->route('redirector', ['slug' => $value->slug])) }}" target="_blank">{{ $value->slug }}</a></td>
                                     <td><a href="{{ $value->link }}" target="_blank">{{ $value->title }}</a></td>
                                     <td>{{ $value->description }}</td>
 
-                                    <!-- we will also add show, edit, and delete buttons -->
                                     <td>
+                                        <a class="btn btn-small btn-success" href="{{ url()->route('urls.show', ['id' => $value->uuid_text]) }}">{{ __('Show') }}</a>
 
-                                        <!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
-                                        <!-- we will add this later since its a little more complicated than the other two buttons -->
+                                        <a class="btn btn-small btn-info" href="{{ url()->route('urls.edit', ['id' => $value->uuid_text]) }}">{{ __('Edit') }}</a>
 
-                                        <!-- show the nerd (uses the show method found at GET /nerds/{id} -->
-                                        <a class="btn btn-small btn-success" href="{{ url()->route('urls.show', ['id' => $value->uuid_text]) }}">Show</a>
-
-                                        <!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-                                        <a class="btn btn-small btn-info" href="{{ url()->route('urls.edit', ['id' => $value->uuid_text]) }}">Edit</a>
-
-                                        <a class="btn btn-small btn-danger" href="{{ url()->route('urls.delete', ['id' => $value->uuid_text]) }}">Delete</a>
-
+                                        <a class="btn btn-small btn-danger" href="{{ url()->route('urls.delete', ['id' => $value->uuid_text]) }}">{{ __('Delete') }}</a>
                                     </td>
                                 </tr>
                             @empty
-                                <tr><td colspan="4" class="text-center">No results found</td></tr>
+                                <tr><td colspan="4" class="text-center">{{ __('No results found') }}</td></tr>
                             @endforelse
                             </tbody>
-                        </table>
+                            </table>
+                        <p class="pull-right"><a class="btn btn-primary" href="{{ url()->route('urls.create') }}">{{ __('Create new') }}</a></p>
                     </div>
                 </div>
             </div>
