@@ -68,6 +68,7 @@
                                 </button>
                             </div>
                         </div>
+                        @include('auth.social')
                     </form>
                 </div>
             </div>

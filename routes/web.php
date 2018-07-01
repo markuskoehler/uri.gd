@@ -18,6 +18,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
 
     Auth::routes();
 
+    Route::get('auth/{provider}', 'Auth\SocialController@redirectToProvider');
+    Route::get('auth/{provider}/callback', 'Auth\SocialController@handleProviderCallback');
+
     Route::prefix('user')->group(function () {
         Route::get('/profile', 'UserAreaController@profile')->name('profile');
 
