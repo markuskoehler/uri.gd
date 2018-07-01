@@ -48,5 +48,9 @@
   "Delete URL": "URL löschen",
   "Do you really want to delete this URL?": "Wollen Sie diese URL wirklich löschen?",
   "No results found": "Keine Ergebnisse gefunden",
-  "Short URL": "Kurz-URL"
+  "Short URL": "Kurz-URL",
+  "Donation Cancelled": "Spende abgebrochen",
+  "Sorry to see that you cancelled your donation. I would appreciate to <a href='mailto:office@koehler.pro'>hear from you</a> what I could do better in the future. Thanks in advance!": "Sie haben Ihre Spende abgebrochen. Ich würde mich über <a href='mailto:office@koehler.pro'>eine Nachricht</a> freuen, was ich in Zukunft verbessern könnte. Vielen Dank im Voraus!",
+  "Donation Successful": "Spende erfolgreich",
+  "Thank you very much for your donation!": "Vielen herzlichen Dank für Ihre Spende!"
 }

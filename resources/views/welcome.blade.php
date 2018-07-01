@@ -99,7 +99,9 @@
                 <a href="https://koehler.wiki/x/IwAyAQ" target="_blank">{{ __('Documentation') }}</a>
                 <a href="https://github.com/markuskoehler/uri.gd" target="_blank">{{ __('GitHub') }}</a>
                 {{--<a href="https://laravel-news.com">News</a>
-                <a href="https://forge.laravel.com">Forge</a>--}}
+                <a href="https://forge.laravel.com">Forge</a>--}}<br><br>
+
+                @include('donate.button')
             </div>
         </div>
     </div>
