@@ -8,18 +8,12 @@
                     <div class="card-header">Dashboard</div>
 
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        You currently have {{ $count }} URLs saved.
+                        {{ __('You currently have :count URLs saved.', ['count' => $count]) }}
                             @if($count)
-                            <a class="btn btn-info" href="{{ url()->route('urls.index') }}">View them</a>
+                            <a class="btn btn-info" href="{{ url()->route('urls.index') }}">{{ __('View them') }}</a>
                             @endif
                             <br><br>
-                        <a class="btn btn-primary" href="{{ url()->route('urls.create') }}">Create new</a>
+                        <a class="btn btn-primary" href="{{ url()->route('urls.create') }}">{{ __('Create new') }}</a>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create URL</div>
+                    <div class="card-header">{{ __('Create URL') }}</div>
 
                     <div class="card-body">
                         @if ($errors->any())
@@ -20,7 +20,7 @@
 
                         {{ bs()->openForm('post', url()->route('urls.store')) }}
                             @include('form_contents')
-                            <div class="col-md">{{  bs()->formGroup()->control(bs()->submit('Create', 'primary')) }}</div>
+                            <div class="col-md">{{  bs()->formGroup()->control(bs()->submit(__('Create'), 'primary')) }}</div>
                         {{ bs()->closeForm() }}
                     </div>
                 </div>
