@@ -81,13 +81,13 @@
         <div class="content">
             <div class="m-b-md">
                 <img src="{{ asset('img/uri-gd-3.fw.png') }}" alt="uri.gd"><br>
-                <span class="subtitle">The open source URL shortener</span>
+                <span class="subtitle">{{ __('The open source URL shortener') }}</span>
             </div>
 
             <div class="searchbox">
                 {{ bs()->openForm('post', url()->route('goto')) }}
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="slug" placeholder="Link Slug">
+                    <input type="text" class="form-control" name="slug" placeholder="{{ __('Link Slug') }}">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit"><span class="oi oi-check" aria-hidden="true"></span></button>
                     </div>
@@ -96,8 +96,8 @@
             </div>
 
             <div class="links">
-                <a href="https://koehler.wiki/x/IwAyAQ" target="_blank">Documentation</a>
-                <a href="https://github.com/markuskoehler/uri.gd" target="_blank">GitHub</a>
+                <a href="https://koehler.wiki/x/IwAyAQ" target="_blank">{{ __('Documentation') }}</a>
+                <a href="https://github.com/markuskoehler/uri.gd" target="_blank">{{ __('GitHub') }}</a>
                 {{--<a href="https://laravel-news.com">News</a>
                 <a href="https://forge.laravel.com">Forge</a>--}}
             </div>
