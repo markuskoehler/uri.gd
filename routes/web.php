@@ -30,10 +30,16 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
         })->name('urls.delete');
     });
 
+    Route::prefix('about')->group(function () {
+        Route::get('/uri-gd', 'AboutController@uriGd')->name('about-uri-gd');
+        Route::get('/markus-koehler', 'AboutController@markusKoehler')->name('about-markus-koehler');
+        Route::get('/markus-koehler-it-services', 'AboutController@markusKoehlerItServices')->name('about-markus-koehler-it-services');
+    });
+
     Route::prefix('legal')->group(function () {
-        Route::get('/legal-notice', 'LegalController@legal_notice')->name('legal-notice');
+        Route::get('/legal-notice', 'LegalController@legalNotice')->name('legal-notice');
         Route::get('/disclaimer', 'LegalController@disclaimer')->name('disclaimer');
-        Route::get('/privacy-policy', 'LegalController@privacy_policy')->name('privacy-policy');
+        Route::get('/privacy-policy', 'LegalController@privacyPolicy')->name('privacy-policy');
     });
 
     Route::post('goto')->uses('RedirectorController@goto')->name('goto');

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class LegalController extends Controller
 {
-    public function legal_notice(Request $request) {
+    public function legalNotice(Request $request) {
         return view('legal.legal-notice');
     }
 
@@ -14,7 +14,7 @@ class LegalController extends Controller
         return view('legal.disclaimer');
     }
 
-    public function privacy_policy(Request $request) {
+    public function privacyPolicy(Request $request) {
         return view('legal.privacy-policy');
     }
 }
