@@ -80,7 +80,7 @@
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div class="m-b-md">
-                <img src="{{ asset('img/uri-gd-3.fw.png') }}" alt="uri.gd"><br>
+                <img class="lazy" data-src="{{ asset('img/uri-gd-3.fw.png') }}" alt="uri.gd"><br>
                 <span class="subtitle">{{ __('The open source URL shortener') }}</span>
             </div>
 
@@ -89,7 +89,7 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="slug" placeholder="{{ __('Link Slug') }}">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit"><span class="oi oi-check" aria-hidden="true"></span></button>
+                        <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 {{ bs()->closeForm() }}
