@@ -1,5 +1,9 @@
 <p align="center"><img src="https://uri.gd/img/uri-gd-3.fw.png"></p>
 
+Develop: <img src="https://travis-ci.org/markuskoehler/uri.gd.svg?branch=develop" alt="build:">
+
+Master: <img src="https://travis-ci.org/markuskoehler/uri.gd.svg?branch=master" alt="build:">
+
 ## About uri.gd
 
 uri.gd is an **open source** URL shortener for everybody. It aims to be easy-to-use while still providing value. Among its features are:
