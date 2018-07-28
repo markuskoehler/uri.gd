@@ -1,8 +1,38 @@
 language: php
+
 php:
-  - '5.6'
   - '7.1'
-  - '7.2'
-  - '7.3'
   - hhvm # on Trusty only
   - nightly
+
+before_script:
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+  - php artisan migrate
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  - npm install --global gulp-cli
+  - npm install
+  - gulp --production
+
+before_install:
+  - mysql -e 'create database homestead_test;'
+
+script:
+  - vendor/bin/phpunit
+  - phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml
+
+addons:
+  mariadb: '10.1'
+
+services:
+  - mysql
+
+cache:
+  directories:
+    - node_modules
+    - vendor
+
+env:
+  - TRAVIS_NODE_VERSION="4"
