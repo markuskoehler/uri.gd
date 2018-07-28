@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Changelog;
+use App\Models\Release;
 use Illuminate\Http\Request;
 
 class ChangelogController extends Controller
@@ -13,7 +15,8 @@ class ChangelogController extends Controller
      */
     public function index()
     {
-        //
+        $releases = Release::with('changelog')->get();
+        return view('about.changelog', compact('releases'));
     }
 
     /**
