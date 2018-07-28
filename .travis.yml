@@ -10,7 +10,7 @@ php:
   - nightly
 
 before_script:
-  - cp .env.travis .env
+#  - cp .env.travis .env # using ENV from travis, as .env does not seem to work
   - composer self-update
 #  - composer install --prefer-dist --no-interaction
   - php artisan key:generate
