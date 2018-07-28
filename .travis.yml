@@ -1,6 +1,6 @@
 language: php
 
-sudo: false
+sudo: required
 
 dist: trusty
 
@@ -12,13 +12,15 @@ php:
 before_script:
   - cp .env.travis .env
   - composer self-update
-  - composer install --prefer-dist --no-interaction
+#  - composer install --prefer-dist --no-interaction
   - php artisan key:generate
   - php artisan migrate
   - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
 #  - npm install --global gulp-cli
   - npm install
   - npm run prod
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
 
 before_install:
   - mysql -e 'create database homestead_test;'
@@ -26,15 +28,20 @@ before_install:
 script:
   - vendor/bin/phpunit -d memory_limit=1024M
   - phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml
+  - php artisan dusk
+
+install:
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 matrix:
   fast_finish: true
 
 addons:
   mariadb: '10.1'
+  chrome: stable
 
-services:
-  - mysql
+#services:
+#  - mysql
 
 cache:
   directories:
