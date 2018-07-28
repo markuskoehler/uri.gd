@@ -76,6 +76,13 @@ return [
             'driver' => 'errorlog',
             'level' => 'debug',
         ],
+
+        'testing' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/phpunit.log'),
+            'level' => 'debug',
+            'days' => 14,
+        ],
     ],
 
 ];
