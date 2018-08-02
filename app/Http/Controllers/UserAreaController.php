@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Url;
-use Illuminate\Http\Request;
 
 class UserAreaController extends Controller
 {
@@ -27,7 +26,7 @@ class UserAreaController extends Controller
         $url_count = Url::whereUserId(auth()->user()->id)->count();
 
         return view('user.profile', [
-            'count' => $url_count
+            'count' => $url_count,
         ]);
     }
 }

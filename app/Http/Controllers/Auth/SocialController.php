@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -42,15 +41,18 @@ class SocialController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider); // todo display proper error if email already on other user
         Auth::login($authUser, true);
+
         return redirect($this->redirectTo);
     }
 
     /**
      * If a user has registered before using social auth, return the user
      * else, create a new user object.
+     *
      * @param  $user Socialite user object
      * @param $provider Social auth provider
-     * @return  User
+     *
+     * @return User
      */
     public function findOrCreateUser($user, $provider)
     {
@@ -58,11 +60,12 @@ class SocialController extends Controller
         if ($authUser) {
             return $authUser;
         }
+
         return User::create([
-            'name'     => $user->name,
-            'email'    => $user->email,
-            'provider' => $provider,
-            'provider_id' => $user->id
+            'name'        => $user->name,
+            'email'       => $user->email,
+            'provider'    => $provider,
+            'provider_id' => $user->id,
         ]);
     }
 }
