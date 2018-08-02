@@ -33,17 +33,18 @@ class UrlController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $rules = array(
-            'slug'       => 'unique:urls|max:20',
-            'title'      => 'required|max:50',
+        $rules = [
+            'slug'        => 'unique:urls|max:20',
+            'title'       => 'required|max:50',
             'description' => 'nullable|max:255',
-            'link' => 'required|max:2000'
-        );
+            'link'        => 'required|max:2000',
+        ];
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
@@ -52,7 +53,7 @@ class UrlController extends Controller
                 ->withInput($request->all());
         } else {
             // store
-            $url = new Url;
+            $url = new Url();
             $url->slug = $request->input('slug') ?? $this->random_slug();
             $url->title = $request->input('title');
             $url->description = $request->input('description');
@@ -62,6 +63,7 @@ class UrlController extends Controller
 
             // redirect
             session()->flash('message', 'Successfully created URL!');
+
             return redirect()->route('urls.index');
         }
     }
@@ -69,7 +71,8 @@ class UrlController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -82,7 +85,8 @@ class UrlController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -95,18 +99,19 @@ class UrlController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $rules = array(
-            'slug'       => 'unique:urls|max:20',
-            'title'      => 'required|max:50',
+        $rules = [
+            'slug'        => 'unique:urls|max:20',
+            'title'       => 'required|max:50',
             'description' => 'nullable|max:255',
-            'link' => 'required|max:2000'
-        );
+            'link'        => 'required|max:2000',
+        ];
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
@@ -124,6 +129,7 @@ class UrlController extends Controller
 
             // redirect
             session()->flash('message', 'Successfully updated nerd!');
+
             return redirect()->route('urls.index');
         }
     }
@@ -131,7 +137,8 @@ class UrlController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -141,6 +148,7 @@ class UrlController extends Controller
 
         // redirect
         session()->flash('message', 'Successfully deleted the URL!');
+
         return redirect()->route('urls.index');
     }
 
@@ -155,6 +163,7 @@ class UrlController extends Controller
         for ($i = 0; $i < mt_rand(5, 20); $i++) {
             $string .= $characters[mt_rand(0, $max)];
         }
+
         return $string;
     }
 }
